@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 #ngnix build
-FROM nginx-1.24.0-alpine
+FROM nginx:1.23.2-alpine
 COPY frontend.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/build /usr/share/nginx/html
 # Starting our application
