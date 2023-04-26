@@ -13,5 +13,10 @@ RUN npm install
 # Copying all the files in our project
 COPY . .
 
+#ngnix build
+FROM nginx:stable-alpine
+COPY - from=build /app/build /usr/share/nginx/html
+COPY - from=build /frontend.conf /etc/nginx/conf.d/default.conf
+
 # Starting our application
 CMD npm start

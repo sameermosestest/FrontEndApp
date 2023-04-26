@@ -22,8 +22,6 @@ spec:
     metadata:
       labels:
         app: frontendreactapp
-        tier: frontend
-        track: stable
     spec:
       containers:
         - name: nginx
