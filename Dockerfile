@@ -15,8 +15,7 @@ COPY . .
 
 #ngnix build
 FROM nginx:stable-alpine
-COPY - from=build /app/build /usr/share/nginx/html
-COPY /frontend.conf /etc/nginx/conf.d/default.conf
-
+COPY frontend.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/build /usr/share/nginx/html
 # Starting our application
 CMD npm start
