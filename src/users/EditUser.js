@@ -25,12 +25,12 @@ export default function EditUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://20.22.120.89:8082/user/${id}`, user);
+    await axios.put(`http://20.22.23.156:8082/user/${id}`, user);
     navigate("/");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://20.22.120.89:8082/user/${id}`);
+    const result = await axios.get(`http://20.22.23.156:8082/user/${id}`);
     setUser(result.data);
   };
 

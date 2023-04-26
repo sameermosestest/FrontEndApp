@@ -16,7 +16,7 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://20.22.120.89:8082/user/${id}`);
+    const result = await axios.get(`http://20.22.23.156:8082/user/${id}`);
     setUser(result.data);
   };
 
