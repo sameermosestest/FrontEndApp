@@ -18,4 +18,6 @@ FROM nginx:1.23.2-alpine
 COPY frontend.conf /etc/nginx/conf.d/default.conf
 # COPY --from=builder /app/build /usr/share/nginx/html
 # Starting our application
-CMD npm start
+#CMD npm start
+EXPOSE 3000 
+CMD ["nginx", "-g", "daemon off;"]
