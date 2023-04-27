@@ -5,7 +5,6 @@ metadata:
 spec:
   selector:
     app: frontendreactapp
-    tier: frontend
   ports:
     - protocol: "TCP"
       port: 3000
@@ -25,7 +24,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: sameermosesmurala/frontendreactapp
+          image: sameermosesmurala/frontendreactapp2
           lifecycle:
             preStop:
               exec:
