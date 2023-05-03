@@ -1,29 +1,31 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: frontend
+  name: frontendreactappservice
 spec:
   selector:
-    app: frontendreactapp
+    app: webapp
   ports:
     - protocol: "TCP"
       port: 3000
       targetPort: 3000
   type: LoadBalancer
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontendreactapp
+  labels:
+    app: webapp
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: frontendreactapp
+        app: webapp
     spec:
       containers:
-        - name: nginx
+        - name: frontendreactapp
           image: sameermosesmurala/frontendreactapp2
           lifecycle:
             preStop:
