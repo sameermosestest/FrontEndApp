@@ -17,7 +17,7 @@ RUN npm run build
 COPY . .
 
 #ngnix build
-FROM nginx:1.23.2-alpine
+FROM nginx:1.23.2-alpine as builder
 COPY frontend.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html
 RUN touch /var/run/nginx.pid
