@@ -8,25 +8,24 @@ WORKDIR /react-app
 
 # Installing dependencies
 COPY ./package.json /react-app
-COPY public/ public/
-COPY src/ src/
-RUN npm ci
-RUN npm run build
 
 # Copying all the files in our project
 COPY . .
 
-#ngnix build
-FROM nginx:1.23.2-alpine as build
+RUN npm install
+RUN npm build
+
+# nginx state for serving content
+FROM nginx:alpine
 COPY frontend.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/build /usr/share/nginx/html
-RUN touch /var/run/nginx.pid
-RUN chown -R nginx:nginx /var/run/nginx.pid /usr/share/nginx/html /var/cache/nginx /var/log/nginx /etc/nginx/conf.d
-USER nginx
-# Starting our application
-#CMD npm start
-EXPOSE 3000 
-CMD ["nginx", "-g", "daemon off;"]
+# Set working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+# Remove default nginx static assets
+RUN rm -rf ./*
+# Copy static assets from builder stage
+COPY --from=builder /app/build .
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
 
 
