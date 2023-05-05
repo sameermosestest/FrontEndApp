@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontendreactapp
-        image: sameermosesmurala/frontendreactapp2
+        image: sameermosesmurala/frontendreactapp3
         imagePullPolicy: Always
         ports:
             - containerPort: 3000
