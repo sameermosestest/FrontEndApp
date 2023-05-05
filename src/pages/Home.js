@@ -10,12 +10,12 @@ export default function Home() {
   }, []);
 
   const loadUsersData = async () => {
-    const result = await axios.get("http://20.22.23.156:8082/users");
+    const result = await axios.get("/users");
     setUsers(result.data);
   };
 
   const deleteUserData = async (id) => {
-    await axios.delete(`http://20.22.23.156:8082/user/${id}`);
+    await axios.delete(`/user/${id}`);
     loadUsersData();
   };
 

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontendreactapp
+  labels:
+    app: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: frontendreactapp
+        image: sameermosesmurala/frontendreactapp2
+        imagePullPolicy: Always
+        ports:
+            - containerPort: 3000

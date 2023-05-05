@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springtempbackend
+  labels:
+    app: springtempbackend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springtempbackend
+  template:
+    metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: 'true'
+      labels:
+        app: springtempbackend
+    spec:
+      containers:
+        - name: springtempbackend
+          image: sameermosesmurala/springtempbackend
+          ports:
+            - containerPort: 8082

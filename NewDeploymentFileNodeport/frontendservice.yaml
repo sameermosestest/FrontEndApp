@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: frontendreactappservice
+spec:
+    ports:
+      - name: webapp
+        port: 3000
+        nodePort: 30000
+        targetPort: 3000
+    selector:
+        app: webapp
+    type: NodePort
