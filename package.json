@@ -21,7 +21,6 @@
       "react-app"
     ]
   },
-  "proxy": "https://springtempbackend-service:8082",
   "browserslist": {
     "production": [
       ">0.2%",

@@ -19,7 +19,7 @@ export default function AddUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("/user", user);
+    await axios.post("http://10.0.65.196:8082/user", user);
     navigate("/");
   };
 
