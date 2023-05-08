@@ -18,9 +18,15 @@ export default function AddUser() {
   };
 
   const onSubmit = async (e) => {
+    try{
     e.preventDefault();
-    await axios.post("http://10.0.65.196:8082/user", user);
+    await axios.post("http://20.22.123.156:8082/user", user);
     navigate("/");
+  }
+  catch (error) {
+    console.error(error); 
+    return error;
+  }
   };
 
   return (

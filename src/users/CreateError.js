@@ -6,8 +6,14 @@ export default function CreateError() {
   let navigate = useNavigate();
 
   const onSubmit = async (e) => {
-    await axios.get("http://10.0.65.196:8082/customError");
+    try{
+    await axios.get("http://20.22.123.156:8082/customError");
     navigate("/");
+  }
+  catch (error) {
+    console.error(error); 
+    return error;
+  }
   };
 
   return (

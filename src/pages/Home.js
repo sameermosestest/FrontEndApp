@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
 export default function Home() {
+
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -10,12 +11,19 @@ export default function Home() {
   }, []);
 
   const loadUsersData = async () => {
-    const result = await axios.get("http://10.0.65.196:8082/users");
+    try{
+      const result = await axios.get("http://20.22.123.156:8082/users");
     setUsers(result.data);
+    }
+    catch (error) {
+      console.error(error); 
+      return error;
+    }
+    
   };
 
   const deleteUserData = async (id) => {
-    await axios.delete(`http://10.0.65.196:8082/user/${id}`);
+    await axios.delete(`http://20.22.123.156:8082/user/${id}`);
     loadUsersData();
   };
 
@@ -64,4 +72,5 @@ export default function Home() {
       </div>
     </div>
   );
+            
 }
