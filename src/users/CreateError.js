@@ -7,7 +7,7 @@ export default function CreateError() {
 
   const onSubmit = async (e) => {
     try{
-    await axios.get("http://20.22.123.156:8082/customError");
+    await axios.get("http://20.96.234.60:8082/customError");
     navigate("/");
   }
   catch (error) {
