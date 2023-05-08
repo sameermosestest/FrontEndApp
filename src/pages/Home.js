@@ -12,10 +12,13 @@ export default function Home() {
 
   const loadUsersData = async () => {
     try{
+      console.log("entered laod users data method "); 
       const result = await axios.get("http://20.22.123.156:8082/users");
+      console.log("exited laod users data method "); 
     setUsers(result.data);
     }
     catch (error) {
+      console.log("Entering catch"); 
       console.log(error); 
     }
     
