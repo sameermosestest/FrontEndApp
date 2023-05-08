@@ -16,4 +16,4 @@ COPY . .
 RUN npm config set proxy http://20.22.44.197:8082
 
 # Starting our application
-CMD npm startz
+CMD npm start
