@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backendcors
+  name: backendcor
   labels:
-    app: backendcors
+    app: backendcor
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backendcors
+      app: backendcor
   template:
     metadata:
       annotations:
         instrumentation.opentelemetry.io/inject-java: 'true'
       labels:
-        app: backendcors
+        app: backendcor
     spec:
       containers:
-        - name: backendcors
-          image: sameermosesmurala/backendcors
+        - name: backendcor
+          image: deepctewari/backend-050823
           ports:
             - containerPort: 8082

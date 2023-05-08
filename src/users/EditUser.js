@@ -31,7 +31,7 @@ export default function EditUser() {
 
   const loadUser = async () => {
     try{
-    const result = await axios.get(`http://20.96.234.60:8082/user/${id}`);
+    const result = await axios.get(`http://20.22.44.197:8082/user/${id}`);
     setUser(result.data);
   }
   catch (error) {

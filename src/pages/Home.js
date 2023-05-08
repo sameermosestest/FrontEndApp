@@ -14,7 +14,7 @@ export default function Home() {
     try{
      
       console.log("entered laod users data method "); 
-      const result = await axios.get("http://20.96.234.60:8082/users");
+      const result = await axios.get("http://20.22.44.197:8082/users");
       console.log("exited laod users data method "); 
     setUsers(result.data);
     }
@@ -28,7 +28,7 @@ export default function Home() {
   const deleteUserData = async (id) => {
     try{
       console.log("entered deleteUserData method "); 
-    await axios.delete(`http://20.96.234.60:8082/user/${id}`);
+    await axios.delete(`http://20.22.44.197:8082/user/${id}`);
     console.log("exited deleteUserData method "); 
     loadUsersData();
   }
