@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function CreateError() {
@@ -7,7 +7,7 @@ export default function CreateError() {
 
   const onSubmit = async (e) => {
     try{
-    await axios.get("http://20.22.44.197:8082/customError");
+    await axios.get("http:/localhost:8082/customError");
     navigate("/");
   }
   catch (error) {

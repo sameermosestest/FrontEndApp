@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backendcor
+  name: backendkafka1
   labels:
-    app: backendcor
+    app: backendkafka1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backendcor
+      app: backendkafka1
   template:
     metadata:
       annotations:
         instrumentation.opentelemetry.io/inject-java: 'true'
       labels:
-        app: backendcor
+        app: backendkafka1
     spec:
       containers:
-        - name: backendcor
-          image: deepctewari/backend-050823
+        - name: backendkafka1
+          image: sameermosesmurala/backendkafka1
           ports:
             - containerPort: 8082
